@@ -1,0 +1,241 @@
+<Project ModBy="Inserter" SigType="0" Name="C:/Project/2018/Refael/FlameWinner/Vhdl/WinnerTop_2_5G/Source/PCIe_RVL.rvl" Date="2019-03-19">
+    <IP Version="1_6_042617"/>
+    <Design DesignEntry="Schematic/Mixed HDL" Synthesis="synplify" DeviceFamily="ECP5UM5G" DesignName="top_x1"/>
+    <Core InsertDataset="0" Insert="1" Reveal_sig="216460409" Name="top_basic_LA0" ID="0">
+        <Setting>
+            <Clock SampleClk="pcie_x1_core_inst/pcie_x1_sys_clk_125" SampleEnable="0" EnableClk="" EnableClk_Pri="0"/>
+            <TraceBuffer Implementation="0" BitTimeStamp="0" hasTimeStamp="0" IncTrigSig="0" BufferDepth="256"/>
+            <Capture Mode="0" MinSamplesPerTrig="8"/>
+            <Event CntEnable="0" MaxEventCnt="8"/>
+            <TrigOut Polarity="0" MinPulseWidth="0" TrigOutNetType="1" EnableTrigOut="0" TrigOutNet="reveal_debug_top_basic_LA0_net"/>
+            <DistRAM Disable="0"/>
+        </Setting>
+        <Dataset Name="Base">
+            <Trace>
+                <Bus Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0">
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:0"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:1"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:2"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:3"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:4"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:5"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:6"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:7"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:8"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:9"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:10"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:11"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:12"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:13"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:14"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_data_vc0:15"/>
+                </Bus>
+                <Bus Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit">
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit:0"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit:1"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit:2"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit:3"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit:4"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit:5"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_bar_hit:6"/>
+                </Bus>
+                <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_end_vc0"/>
+                <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_st_vc0"/>
+                <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_rx_us_req_vc0"/>
+                <Bus Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0">
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:0"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:1"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:2"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:3"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:4"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:5"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:6"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:7"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:8"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:9"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:10"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:11"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:12"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:13"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:14"/>
+                    <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_data_vc0:15"/>
+                </Bus>
+                <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_end_vc0"/>
+                <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_rdy_vc0"/>
+                <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_req_vc0"/>
+                <Sig Type="SIG" Name="pcie_x1_core_inst/pcie_x1_tx_st_vc0"/>
+                <Bus Name="wb_arb/m0_sel_i">
+                    <Sig Type="SIG" Name="wb_arb/m0_sel_i:0"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_sel_i:1"/>
+                </Bus>
+                <Sig Type="SIG" Name="wb_arb/m0_stb_i"/>
+                <Sig Type="SIG" Name="wb_arb/m0_we_i"/>
+                <Sig Type="SIG" Name="wb_arb/m0_ack_o"/>
+                <Bus Name="wb_arb/m0_adr_i">
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:0"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:1"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:2"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:3"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:4"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:5"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:6"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:7"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:8"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:9"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:10"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:11"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:12"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:13"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:14"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:15"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:16"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:17"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:18"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:19"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:20"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:21"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:22"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:23"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:24"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:25"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:26"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:27"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:28"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:29"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:30"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_adr_i:31"/>
+                </Bus>
+                <Bus Name="wb_arb/m0_cti_i">
+                    <Sig Type="SIG" Name="wb_arb/m0_cti_i:0"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_cti_i:1"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_cti_i:2"/>
+                </Bus>
+                <Sig Type="SIG" Name="wb_arb/m0_cyc_i"/>
+                <Bus Name="wb_arb/m0_dat_i">
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:0"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:1"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:2"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:3"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:4"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:5"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:6"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:7"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:8"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:9"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:10"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:11"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:12"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:13"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:14"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_i:15"/>
+                </Bus>
+                <Bus Name="wb_arb/m0_dat_o">
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:0"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:1"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:2"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:3"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:4"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:5"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:6"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:7"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:8"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:9"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:10"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:11"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:12"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:13"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:14"/>
+                    <Sig Type="SIG" Name="wb_arb/m0_dat_o:15"/>
+                </Bus>
+                <Sig Type="SIG" Name="wb_arb/s0_ack_i"/>
+                <Bus Name="wb_arb/s0_adr_o">
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:0"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:1"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:2"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:3"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:4"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:5"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:6"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:7"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:8"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:9"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:10"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:11"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:12"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:13"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:14"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:15"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:16"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:17"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:18"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:19"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:20"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:21"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:22"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:23"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:24"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:25"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:26"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:27"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:28"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:29"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:30"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_adr_o:31"/>
+                </Bus>
+                <Bus Name="wb_arb/s0_cti_o">
+                    <Sig Type="SIG" Name="wb_arb/s0_cti_o:0"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_cti_o:1"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_cti_o:2"/>
+                </Bus>
+                <Sig Type="SIG" Name="wb_arb/s0_cyc_o"/>
+                <Bus Name="wb_arb/s0_dat_i">
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:0"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:1"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:2"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:3"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:4"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:5"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:6"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:7"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:8"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:9"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:10"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:11"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:12"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:13"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:14"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_i:15"/>
+                </Bus>
+                <Bus Name="wb_arb/s0_dat_o">
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:0"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:1"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:2"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:3"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:4"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:5"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:6"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:7"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:8"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:9"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:10"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:11"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:12"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:13"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:14"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_dat_o:15"/>
+                </Bus>
+                <Sig Type="SIG" Name="wb_arb/s0_sel"/>
+                <Bus Name="wb_arb/s0_sel_o">
+                    <Sig Type="SIG" Name="wb_arb/s0_sel_o:0"/>
+                    <Sig Type="SIG" Name="wb_arb/s0_sel_o:1"/>
+                </Bus>
+                <Sig Type="SIG" Name="wb_arb/s0_stb_o"/>
+                <Sig Type="SIG" Name="wb_arb/s0_we_o"/>
+            </Trace>
+            <Trigger>
+                <TU Serialbits="0" Type="0" ID="1" Sig=""/>
+                <TE MaxSequence="2" MaxEvnCnt="1" ID="1" Resource="0"/>
+            </Trigger>
+        </Dataset>
+    </Core>
+</Project>

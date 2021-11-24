@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="pcie_x1_eval" device="LFE5UM5G-85F-8BG381I" synthesis="synplify" default_implementation="pcie_x1_eval_top">
+    <Implementation title="pcie_x1_eval_top" dir="pcie_x1_eval_top" description="pcie_x1_eval_top" default_strategy="Strategy1">
+        <Options>
+            <Option name="include path" value="../../../../"/>
+            <Option name="HDL type" value="Verilog"/>
+            <Option name="top" value="pcie_x1_eval_top"/>
+        </Options>
+        <Source name="../../../../pcie_eval/pcie_x1/src/params/pci_exp_params.v" type="Verilog"/>
+        <Source name="C:/lscc/diamond/3.10_x64/cae_library/synthesis/verilog/pmi_def.v" type="Verilog"/>
+        <Source name="../../../models/ecp5um5g/pcie_x1_extref.v" type="Verilog"/>
+        <Source name="../../../models/ecp5um5g/pcie_x1_pcs_softlogic.v" type="Verilog"/>
+        <Source name="../../../models/ecp5um5g/pcie_x1_pcs.v" type="Verilog"/>
+        <Source name="../../../models/ecp5um5g/pcie_x1_sync1s.v" type="Verilog"/>
+        <Source name="../../../models/ecp5um5g/pcie_x1_ctc.v" type="Verilog"/>
+        <Source name="../../../models/ecp5um5g/pcie_x1_pipe.v" type="Verilog"/>
+        <Source name="../../../models/ecp5um5g/pcie_x1_phy.v" type="Verilog"/>
+        <Source name="../../../../pcie_x1_core_bb.v" type="Verilog"/>
+        <Source name="../../../../pcie_eval/pcie_x1/src/top/pcie_x1_eval_top.v" type="Verilog"/>
+        <Source name="pci_exp_top.lpf" type="Logic Preference"/>
+    </Implementation>
+    <Strategy name="Strategy1" file="Strategy1.sty"/>
+</BaliProject>

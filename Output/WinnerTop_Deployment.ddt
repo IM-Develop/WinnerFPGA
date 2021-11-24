@@ -1,0 +1,18 @@
+[Deployment Project]
+version=Lattice Diamond 3.11.3.469
+EncryptionVer=1.0
+functionIdx=2
+typeIdx=11
+isRequiredXCFFile=0
+xcfFileName=
+optionList=Operation;Compress Embedded Files;Generate Hex (.c) File
+valueList=Slave SPI Fast Program;On;Off
+
+[Input File Info]
+inputFileList=C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Implementation/ecp5um-85F_PCIeBasic/impl1/top_x1_impl1.bit
+familyList=ECP5UM5G
+deviceList=LFE5UM5G-85F
+outputFileList=C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_algo.sea;C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_data.sed
+
+[Command Line]
+Command="C:/lscc/diamond/3.11_x64/bin/nt64/ddtcmd" -oft -sspi -if "C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Implementation/ecp5um-85F_PCIeBasic/impl1/top_x1_impl1.bit" -op "Slave SPI Fast Program" -ofa "C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_algo.sea" -ofd "C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_data.sed"

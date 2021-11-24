@@ -1,0 +1,25 @@
+<Project ModBy="Analyzer" Name="C:/Project/2018/Refael/FlameWinner/Vhdl/WinnerTop_2_5G/Source/UART_RVL.rvs" Date="2019-03-26">
+ <Core Name="WinnerTop_LA0">
+  <Setting>
+   <Capture SamplesPerTrig="16384" NumTrigsCap="1"/>
+   <Event EventCnt="0" CntEnableRun="0"/>
+   <TrigSetting PreTrgSamples="" AND_ALL="0" PostTrgSamples="" TURadix="0"/>
+  </Setting>
+  <Dataset Name="Base">
+   <Trace>
+    <Sig Name="com"/>
+    <Sig Name="com_de"/>
+    <Sig Name="sn_2_zabad"/>
+    <Sig Name="tel_com_rs485_1"/>
+    <Sig Name="tel_com_rs485_1_de"/>
+    <Sig Name="video_sync"/>
+    <Sig Name="video_sync_de"/>
+    <Sig Name="zabad_2_sn"/>
+   </Trace>
+   <Trigger>
+    <TU Operator="0" Name="TU1" ID="1" Value="0" Radix="0"/>
+    <TE Enable="1" Expression="TU1" Name="TE1" ID="1"/>
+   </Trigger>
+  </Dataset>
+ </Core>
+</Project>

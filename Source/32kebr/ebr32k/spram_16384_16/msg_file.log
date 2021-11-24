@@ -1,0 +1,36 @@
+SCUBA, Version Diamond_3.1_Production (93)
+Fri Mar 07 14:40:10 2014
+  
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2014 Lattice Semiconductor Corporation,  All rights reserved.
+  
+BEGIN SCUBA Module Synthesis
+  
+    Issued command   : C:\lscc\diamond\3.1_x64\ispfpga\bin\nt64\scuba.exe -w -n spram_16384_16 -lang verilog -synth synplify -bus_exp 7 -bb -arch sa5p00m -dram -type ramdq -addr_width 11 -num_words 1638 -data_width 16 -outData REGISTERED 
+    Circuit name     : spram_16384_16
+    Module type      : sspram
+    Module Version   : 3.7
+    Address width    : 11
+    Data width       : 16
+    Ports            : 
+    Inputs       : Address[10:0], Data[15:0], Clock, WE, ClockEn, Reset
+    Outputs      : Q[15:0]
+    I/O buffer       : not inserted
+    Clock edge       : rising edge
+    EDIF output      : spram_16384_16.edn
+    Verilog output   : spram_16384_16.v
+    Verilog template : spram_16384_16_tmpl.v
+    Verilog testbench: tb_spram_16384_16_tmpl.v
+    Verilog purpose  : for synthesis and simulation
+    Bus notation     : big endian
+    Report output    : spram_16384_16.srp
+    Estimated Resource Usage:
+            LUT : 837
+           DRAM : 412
+            Reg : 16
+  
+END   SCUBA Module Synthesis
+

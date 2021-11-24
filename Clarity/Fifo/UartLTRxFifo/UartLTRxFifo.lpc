@@ -1,0 +1,53 @@
+[Device]
+Family=ecp5um5g
+PartType=LFE5UM5G-85F
+PartName=LFE5UM5G-85F-8BG381I
+SpeedGrade=8
+Package=CABGA381
+OperatingCondition=IND
+Status=P
+
+[IP]
+VendorName=Lattice Semiconductor Corporation
+CoreType=LPM
+CoreStatus=Demo
+CoreName=FIFO_DC
+CoreRevision=5.8
+ModuleName=UartLTRxFifo
+SourceFormat=vhdl
+ParameterFileVersion=1.0
+Date=11/01/2021
+Time=15:49:32
+
+[Parameters]
+Verilog=0
+VHDL=1
+EDIF=1
+Destination=Synplicity
+Expression=BusA(0 to 7)
+Order=Big Endian [MSB:LSB]
+IO=0
+FIFOImp=EBR Based
+Depth=2048
+Width=10
+RDepth=2048
+RWidth=10
+regout=1
+ClockEn=0
+CtrlByRdEn=1
+EmpFlg=1
+PeMode=Static - Single Threshold
+PeAssert=2
+PeDeassert=12
+FullFlg=1
+PfMode=Static - Single Threshold
+PfAssert=2000
+PfDeassert=506
+Reset=Async
+Reset1=Sync
+RDataCount=1
+WDataCount=1
+EnECC=0
+
+[Command]
+cmd_line= -w -n UartLTRxFifo -lang vhdl -synth synplify -bus_exp 7 -bb -arch sa5p00g -type ebfifo -depth 2048 -width 10 -rwidth 10 -regout -reset_rel SYNC -pe 2 -pf 2000 -rfill -fill

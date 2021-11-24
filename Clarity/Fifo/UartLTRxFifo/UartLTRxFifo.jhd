@@ -1,0 +1,2 @@
+VHDL_ENTITY_ONLY UartLTRxFifo DEFIN UartLTRxFifo.vhd
+MODULE UartLTRxFifo DEFIN UartLTRxFifo.vhd

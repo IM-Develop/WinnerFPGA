@@ -1,0 +1,45 @@
+<!DOCTYPE ispTLA>
+<ispTLA>
+ <CreationDate>Tue Mar 26 20:28:15 2019</CreationDate>
+ <XCFFileName/>
+ <CableSetting>
+  <IsTRSTConnected val="false"/>
+  <TRSTSetting val="0"/>
+  <IsBSCANConnected val="false"/>
+  <BSCANSetting val="0"/>
+  <CableType val="USB2"/>
+  <PortAddress val="0"/>
+  <PortSetting val="0"/>
+  <TCKDelay val="1"/>
+ </CableSetting>
+ <DeviceCount>1</DeviceCount>
+ <Device>
+  <DeviceIndex>0</DeviceIndex>
+  <DeviceName>1. LFE5UM5G-85F</DeviceName>
+  <DeviceID>0x81113043</DeviceID>
+  <HasIspTRACY>true</HasIspTRACY>
+  <HasJTAG2WB>false</HasJTAG2WB>
+  <SERDES/>
+  <IRBypassLen>8</IRBypassLen>
+  <RVLFileName>UART_RVL.rvl</RVLFileName>
+  <RVSFileName>UART_RVL.rvs</RVSFileName>
+  <LACoreCount>1</LACoreCount>
+  <WinUI CoreIndex="0">
+   <TraceSigTreeData>
+    <TraceSignal IsHidden="false" Name="com" NodeType="0" PortIndex="0"/>
+    <TraceSignal IsHidden="false" Name="com_de" NodeType="0" PortIndex="1"/>
+    <TraceSignal IsHidden="false" Name="sn_2_zabad" NodeType="0" PortIndex="2"/>
+    <TraceSignal IsHidden="false" Name="tel_com_rs485_1" NodeType="0" PortIndex="3"/>
+    <TraceSignal IsHidden="false" Name="tel_com_rs485_1_de" NodeType="0" PortIndex="4"/>
+    <TraceSignal IsHidden="false" Name="video_sync" NodeType="0" PortIndex="5"/>
+    <TraceSignal IsHidden="false" Name="video_sync_de" NodeType="0" PortIndex="6"/>
+    <TraceSignal IsHidden="false" Name="zabad_2_sn" NodeType="0" PortIndex="7"/>
+   </TraceSigTreeData>
+   <TriggerUI UserSelect="0" PreSelectType="0" PreSelect="1" UserSelectPos="0"/>
+   <CoreRun Run="true"/>
+   <CoreWndUIData>
+    <ClockFrequency Unit="ns" Frequency="-1.0"/>
+   </CoreWndUIData>
+  </WinUI>
+ </Device>
+</ispTLA>
