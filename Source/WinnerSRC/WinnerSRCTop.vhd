@@ -212,12 +212,12 @@ ARCHITECTURE Arc_WinnerSRCTop OF WinnerSRCTop IS
 	
 BEGIN
 
-	COM_SAFE_ARM_OUT		<= TxD(0);
+	COM_SAFE_ARM_OUT		<= TxD(0);--test
 	RxD(0)					<= COM_SAFE_ARM_IN;
 	RS485EN(0)				<= '0';--RS422
 --************** SEU_LSR_COM/LSR_SEU_COM **************
 	SN_2_GPS_DAT			<= TxD(1);
-	RxD(1)					<= GPS_2_SN_DAT;
+	RxD(1)					<= GPS_2_SN_DAT;--optocapular
 	RS485EN(1)				<= '0';--RS422
 --************** LASER_SEU_COM/SEU_LASER_COM **********
 	SN_2_IMU_DAT			<= TxD(2);

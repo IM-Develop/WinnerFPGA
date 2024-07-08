@@ -9,10 +9,10 @@ optionList=Operation;Compress Embedded Files;Generate Hex (.c) File
 valueList=Slave SPI Fast Program;On;Off
 
 [Input File Info]
-inputFileList=C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Implementation/ecp5um-85F_PCIeBasic/impl1/top_x1_impl1.bit
+inputFileList=C:/Project/IM_Git_Projects/Refael/Winner2/Implementation/ecp5um-85F_PCIeBasic/impl1/top_x1_impl1.bit
 familyList=ECP5UM5G
 deviceList=LFE5UM5G-85F
-outputFileList=C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_algo.sea;C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_data.sed
+outputFileList=C:/Project/IM_Git_Projects/Refael/Winner2/Output/WinnerTopV02_22022022_1_algo.sea;C:/Project/IM_Git_Projects/Refael/Winner2/Output/WinnerTopV02_22022022_1_data.sed
 
 [Command Line]
-Command="C:/lscc/diamond/3.11_x64/bin/nt64/ddtcmd" -oft -sspi -if "C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Implementation/ecp5um-85F_PCIeBasic/impl1/top_x1_impl1.bit" -op "Slave SPI Fast Program" -ofa "C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_algo.sea" -ofd "C:/Project/2020/Refael/Lightning/Vhdl/Ver2_2/Output/WinnerTopV02_211121_1_data.sed"
+Command="C:/lscc/diamond/3.11_x64/bin/nt64/ddtcmd" -oft -sspi -if "C:/Project/IM_Git_Projects/Refael/Winner2/Implementation/ecp5um-85F_PCIeBasic/impl1/top_x1_impl1.bit" -op "Slave SPI Fast Program" -ofa "C:/Project/IM_Git_Projects/Refael/Winner2/Output/WinnerTopV02_22022022_1_algo.sea" -ofd "C:/Project/IM_Git_Projects/Refael/Winner2/Output/WinnerTopV02_22022022_1_data.sed"

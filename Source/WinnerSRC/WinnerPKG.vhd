@@ -6,7 +6,7 @@ use ieee.std_logic_unsigned.all;
 package WinnerPKG is
 
 	constant DefaultBaud		: std_logic_vector(15 downto 0) := x"043D";--1085 (115200bps)
-	constant Version			: std_logic_vector(31 downto 0) := x"FCAB0007";
+	constant Version			: std_logic_vector(31 downto 0) := x"FCAB1007";
 	
 	constant UartFifoSize		: integer range 1 to 16 := 11;--2^8 = 256
 	constant TxUartFifoSize		: integer range 1 to 16 := 9;
