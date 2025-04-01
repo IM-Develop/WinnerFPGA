@@ -18,6 +18,7 @@ entity WinnerTop is
 		 MIPI1_SELECT			: out std_logic;
 		 FPGA_VIDCLK			: in std_logic;
 		 -- CL_SPR					: out std_logic_vector(3 downto 0);
+ 		 FPGA_LED				: buffer std_logic_vector(5 downto 0);
 --*********************** Global signals *****************************************
 		 COM					: inout std_logic;--
 		 COM_DE					: out std_logic;--RS485
@@ -73,11 +74,11 @@ ARCHITECTURE Arc_WinnerTop OF WinnerTop IS
 			 Cycle					: out std_logic;
 			 STB					: out std_logic;
 			 WRIn					: out std_logic;
-			 SelectIn				: out std_logic_vector(1 downto 0);
-			 CTI					: out std_logic_vector(2 downto 0);
+			 SelectIn				: out std_logic_vector(3 downto 0);
+--			 CTI					: out std_logic_vector(2 downto 0);
 			 Addrss					: out std_logic_vector(31 downto 0);
-			 DataIn					: out std_logic_vector(15 downto 0);
-			 DataOut				: in std_logic_vector(15 downto 0);
+			 DataIn					: out std_logic_vector(31 downto 0);
+			 DataOut				: in std_logic_vector(31 downto 0);
 			 ACK					: in std_logic;
 			 -- ERR					: in std_logic;
 			 -- RTY					: in std_logic;
@@ -96,15 +97,16 @@ ARCHITECTURE Arc_WinnerTop OF WinnerTop IS
 			 nReset					: in std_logic;--avalon #reset
 			 Clk					: in std_logic;--avalon clock 125MHz
 			 FPGA_VIDCLK			: in std_logic;--27MHz
+			 FPGA_LED				: buffer std_logic_vector(5 downto 0);
 	--*********************** Global signals *****************************************
 			 Cycle					: in std_logic;
 			 STB					: in std_logic;
 			 WRIn					: in std_logic;
-			 SelectIn				: in std_logic_vector(1 downto 0);
-			 CTI					: in std_logic_vector(2 downto 0);
+			 SelectIn				: in std_logic_vector(3 downto 0);
+--			 CTI					: in std_logic_vector(2 downto 0);
 			 Addrss					: in std_logic_vector(31 downto 0);
-			 DataIn					: in std_logic_vector(15 downto 0);
-			 DataOut				: buffer std_logic_vector(15 downto 0);
+			 DataIn					: in std_logic_vector(31 downto 0);
+			 DataOut				: buffer std_logic_vector(31 downto 0);
 			 ACK					: buffer std_logic;
 			 ERR					: out std_logic;
 			 RTY					: out std_logic;
@@ -156,11 +158,11 @@ ARCHITECTURE Arc_WinnerTop OF WinnerTop IS
 	signal	Cycle		: std_logic;
 	signal	STB			: std_logic;
 	signal	WRIn		: std_logic;
-	signal	SelectIn	: std_logic_vector(1 downto 0);
-	signal	CTI			: std_logic_vector(2 downto 0);
+	signal	SelectIn	: std_logic_vector(3 downto 0);
+--	signal	CTI			: std_logic_vector(2 downto 0);
 	signal	Addrss		: std_logic_vector(31 downto 0);
-	signal	DataIn		: std_logic_vector(15 downto 0);
-	signal	DataOut		: std_logic_vector(15 downto 0);
+	signal	DataIn		: std_logic_vector(31 downto 0);
+	signal	DataOut		: std_logic_vector(31 downto 0);
 	signal	ACK			: std_logic;
 	-- signal	ERR			: std_logic;
 	-- signal	RTY			: std_logic;
@@ -252,7 +254,7 @@ BEGIN
 				 STB => STB,
 				 WRIn => WRIn,
 				 SelectIn => SelectIn,
-				 CTI => CTI,
+--				 CTI => CTI,
 				 Addrss => Addrss,
 				 DataIn => DataIn,
 				 DataOut => DataOut,
@@ -273,11 +275,12 @@ BEGIN
 				 nReset					=> nReset,
 				 Clk					=> SysClk,
 				 FPGA_VIDCLK			=> FPGA_VIDCLK,
+				 FPGA_LED				=> FPGA_LED,
 				 Cycle					=> Cycle,
 				 STB					=> STB,
 				 WRIn					=> WRIn,
 				 SelectIn				=> SelectIn,
-				 CTI					=> CTI,
+--				 CTI					=> CTI,
 				 Addrss					=> Addrss,
 				 DataIn					=> DataIn,
 				 DataOut				=> DataOut,

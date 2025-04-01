@@ -1,0 +1,9 @@
+Runtime Summary:
+================
+
+	The following design units have negligible CPU times:
+	=====================================================
+		* Library: work, DesignUnit: pcie2_extref
+			Hardware Generation Phase, Optimization Phase: Negligible CPU time
+		* Library: work, DesignUnit: EXTREFB
+			Initial Cleanup Phase, Optimization Phase: Negligible CPU time

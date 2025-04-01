@@ -10,15 +10,16 @@ entity WinnerSRCTop is
 		 nReset					: in std_logic;--avalon #reset
 		 Clk					: in std_logic;--avalon clock 125MHz
 		 FPGA_VIDCLK			: in std_logic;--27MHz
+		 FPGA_LED				: buffer std_logic_vector(5 downto 0);
 --*********************** Global signals *****************************************
 		 Cycle					: in std_logic;
 		 STB					: in std_logic;
 		 WRIn					: in std_logic;
-		 SelectIn				: in std_logic_vector(1 downto 0);
-		 CTI					: in std_logic_vector(2 downto 0);
+		 SelectIn				: in std_logic_vector(3 downto 0);
+--		 CTI					: in std_logic_vector(2 downto 0);
 		 Addrss					: in std_logic_vector(31 downto 0);
-		 DataIn					: in std_logic_vector(15 downto 0);
-		 DataOut				: buffer std_logic_vector(15 downto 0);
+		 DataIn					: in std_logic_vector(31 downto 0);
+		 DataOut				: buffer std_logic_vector(31 downto 0);
 		 ACK					: buffer std_logic;
 		 ERR					: out std_logic;
 		 RTY					: out std_logic;
@@ -92,9 +93,9 @@ ARCHITECTURE Arc_WinnerSRCTop OF WinnerSRCTop IS
 			 s0_write				: in std_logic;
 			 s0_chipselect			: in std_logic;
 			 s0_address				: in std_logic_vector(4 downto 0);
-			 s0_readdata			: buffer std_logic_vector(15 downto 0);
+			 s0_readdata			: buffer std_logic_vector(31 downto 0);
 			 -- s0_readdatavalid		: out std_logic;
-			 s0_writedata			: in std_logic_vector(15 downto 0);
+			 s0_writedata			: in std_logic_vector(31 downto 0);
 			 -- s0_waitrequest			: out std_logic;
 	--************************* Avalon-MM Slave **************************************
 			 SystemTimer			: in std_logic_vector(63 downto 0);
@@ -119,8 +120,8 @@ ARCHITECTURE Arc_WinnerSRCTop OF WinnerSRCTop IS
 			 s0_write				: in std_logic;
 			 s0_chipselect			: in std_logic;
 			 s0_address				: in std_logic_vector(3 downto 0);
-			 s0_readdata			: buffer std_logic_vector(15 downto 0);
-			 s0_writedata			: in std_logic_vector(15 downto 0);
+			 s0_readdata			: buffer std_logic_vector(31 downto 0);
+			 s0_writedata			: in std_logic_vector(31 downto 0);
 	--************************* Avalon-MM Slave **************************************
 			 SystemTimer			: buffer std_logic_vector(63 downto 0);
 			 SyncOut				: buffer std_logic
@@ -136,8 +137,8 @@ ARCHITECTURE Arc_WinnerSRCTop OF WinnerSRCTop IS
 			 s0_write				: in std_logic;
 			 s0_chipselect			: in std_logic;
 			 s0_address				: in std_logic_vector(4 downto 0);
-			 s0_readdata			: buffer std_logic_vector(15 downto 0);
-			 s0_writedata			: in std_logic_vector(15 downto 0);
+			 s0_readdata			: buffer std_logic_vector(31 downto 0);
+			 s0_writedata			: in std_logic_vector(31 downto 0);
 	--************************* Avalon-MM Slave **************************************
 			 SystemTimer			: in std_logic_vector(63 downto 0);
 			 Input     				: in std_logic
@@ -154,8 +155,8 @@ ARCHITECTURE Arc_WinnerSRCTop OF WinnerSRCTop IS
 			 s0_write				: in std_logic;
 			 s0_chipselect			: in std_logic;
 			 s0_address				: in std_logic_vector(4 downto 0);
-			 s0_readdata			: buffer std_logic_vector(15 downto 0);
-			 s0_writedata			: in std_logic_vector(15 downto 0);
+			 s0_readdata			: buffer std_logic_vector(31 downto 0);
+			 s0_writedata			: in std_logic_vector(31 downto 0);
 	--************************* Avalon-MM Slave **************************************
 			 SystemTimer			: in std_logic_vector(63 downto 0);
 			 Output     			: buffer std_logic
@@ -172,15 +173,24 @@ ARCHITECTURE Arc_WinnerSRCTop OF WinnerSRCTop IS
 			);
 	end component Pll27MHz; -- sbp_module=true 
 	
+	component CPLDLedCTRL
+		port(
+			 nReset    		: in std_logic;
+			 UartClk       	: in std_logic;--22.11842MHz
+	--*********************** Global signals *****************************************
+			 CPLDLed		: buffer std_logic_vector(5 downto 0)
+			);
+	end component;
+
 	signal 	RD			: std_logic;
 	signal	WR			: std_logic;
 	-- signal	Data		: std_logic_vector(15 downto 0);
 	
 	signal	ScratchPad	: std_logic_vector(31 downto 0);
 	
-	signal	DebugReg	: std_logic_vector(15 downto 0);
+	signal	DebugReg	: std_logic_vector(31 downto 0);
 	
-	subtype Reg is std_logic_vector(15 downto 0);
+	subtype Reg is std_logic_vector(31 downto 0);
 	type matrix is array (0 to 19) of Reg;
 	
 	signal	DataOutReg		: matrix;
@@ -207,7 +217,7 @@ ARCHITECTURE Arc_WinnerSRCTop OF WinnerSRCTop IS
 	-- signal	TrigOut			: std_logic_vector(31 downto 0);
 	signal	SyncOut			: std_logic;
 	
-	signal	ClrIRQ			: std_logic_vector(1 downto 0);
+	signal	ClrIRQ			: std_logic;
 	signal	MSISSF			: std_logic_vector(15 downto 0);
 	
 BEGIN
@@ -326,7 +336,7 @@ BEGIN
 				TestOut(8) when(DebugReg(3 downto 0) = x"8") else
 				TestOut(9) when(DebugReg(3 downto 0) = x"9") else
 				SyncOut	   when(DebugReg(3 downto 0) = x"A") else
-				ClrIRQ(0)  when(DebugReg(3 downto 0) = x"B") else
+				ClrIRQ	   when(DebugReg(3 downto 0) = x"B") else
 				MSISSF(15) when(DebugReg(3 downto 0) = x"C") else
 				-- TrigOut(3) when(DebugReg(3 downto 0) = x"D") else
 				-- TrigOut(5) when(DebugReg(3 downto 0) = x"E") else
@@ -372,6 +382,13 @@ BEGIN
 				 Module_Pll27MHz_LOCK	=> nReset108MHz
 				);
 				
+	U6 : CPLDLedCTRL
+		port map(
+				 nReset    		=> nReset108MHz,
+				 UartClk       	=> Clk27MHz,
+				 CPLDLed		=> FPGA_LED
+				);
+				
 	TEL_CLK_DE <= '1';--Transmit
 	
 	PCIe_Proc : process(nReset, Clk)
@@ -385,8 +402,8 @@ BEGIN
 				HoldIRQReg <= (others => '0');
 				MSI <= x"00";
 				EnableReg <= (others => '0');
-				DebugReg <= x"0000";
-				ClrIRQ <= "00";
+				DebugReg <= (others => '0');
+				ClrIRQ <= '0';
 				MSISSF <= x"0000";
 			else
 				if rising_edge (Clk)then
@@ -399,74 +416,40 @@ BEGIN
 					else
 						MSI <= x"00";
 						MSISSF <= MSISSF(14 downto 0) & '0';
-						if (ClrIRQ(0) = '1' and RD = '0') then
-							HoldIRQReg(15 downto 0) <= (others => '0');
+						if (ClrIRQ = '1' and RD = '0') then
+							HoldIRQReg <= (others => '0');
 						else
-							HoldIRQReg(15 downto 0) <= HoldIRQReg(15 downto 0);
-						end if;
-						if (ClrIRQ(1) = '1' and RD = '0') then
-							HoldIRQReg(31 downto 16) <= (others => '0');
-						else
-							HoldIRQReg(31 downto 16) <= HoldIRQReg(31 downto 16);
+							HoldIRQReg <= HoldIRQReg;
 						end if;
 					end if;
 					if (ChipSelect(0) = '1') then
 						case Addrss(7 downto 0) is
 							when x"00" =>
 								if (RD = '1') then
-									DataOutReg(0) <= Version(15 downto 0);
-								end if;
-							when x"02" =>
-								if (RD = '1') then
-									DataOutReg(0) <= Version(31 downto 16);
+									DataOutReg(0) <= Version;
 								end if;
 							when x"04" =>
 								if (RD = '1') then
-									DataOutReg(0) <= ScratchPad(15 downto 0);
+									DataOutReg(0) <= ScratchPad;
 								elsif (WR = '1') then
-									ScratchPad(15 downto 0) <= DataIn;
-								end if;
-							when x"06" =>
-								if (RD = '1') then
-									DataOutReg(0) <= ScratchPad(31 downto 16);
-								elsif (WR = '1') then
-									ScratchPad(31 downto 16) <= DataIn;
+									ScratchPad <= DataIn;
 								end if;
 							when x"08" =>
 								if (RD = '1') then
-									DataOutReg(0) <= EnableReg(15 downto 0);
+									DataOutReg(0) <= EnableReg;
 								elsif (WR = '1') then
-									EnableReg(15 downto 0) <= DataIn;
-								end if;
-							when x"0A" =>
-								if (RD = '1') then
-									DataOutReg(0) <= EnableReg(31 downto 16);
-								elsif (WR = '1') then
-									EnableReg(31 downto 16) <= DataIn;
+									EnableReg <= DataIn;
 								end if;
 							when x"0C" =>
 								if (RD = '1') then
-									DataOutReg(0) <= IRQMaskReg(15 downto 0);
+									DataOutReg(0) <= IRQMaskReg;
 								elsif (WR = '1') then
-									IRQMaskReg(15 downto 0) <= DataIn;
-								end if;
-							when x"0E" =>
-								if (RD = '1') then
-									DataOutReg(0) <= IRQMaskReg(31 downto 16);
-								elsif (WR = '1') then
-									IRQMaskReg(31 downto 16) <= DataIn;
+									IRQMaskReg <= DataIn;
 								end if;
 							when x"10" =>
 								if (RD = '1') then
-									DataOutReg(0) <= HoldIRQReg(15 downto 0);
-									ClrIRQ(0) <= '1';
-									-- HoldIRQReg(15 downto 0) <= x"0000" or IRQReg(15 downto 0);
-								end if;
-							when x"12" =>
-								if (RD = '1') then
-									DataOutReg(0) <= HoldIRQReg(31 downto 16);
-									ClrIRQ(1) <= '1';
-									-- HoldIRQReg(31 downto 16) <= x"0000" or IRQReg(31 downto 16);
+									DataOutReg(0) <= HoldIRQReg;
+									ClrIRQ <= '1';
 								end if;
 							when x"14" =>
 								if (RD = '1') then
@@ -476,16 +459,11 @@ BEGIN
 								end if;
 							when others =>
 								DataOutReg(0) <= (others => '0');
-								ClrIRQ <= "00";
+								ClrIRQ <= '0';
 						end case;
 					else
-						-- if (IRQReg /= 0) then
-							-- HoldIRQReg <= HoldIRQReg or IRQReg;
-						-- else
-							-- HoldIRQReg <= HoldIRQReg;
-						-- end if;
 						DataOutReg(0) <= (others => '0');
-						ClrIRQ <= "00";
+						ClrIRQ <= '0';
 					end if;
 				end if;
 			end if;

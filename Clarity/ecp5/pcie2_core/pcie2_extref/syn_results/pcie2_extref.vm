@@ -1,0 +1,57 @@
+//
+// Written by Synplify Pro 
+// Product Version "U-2023.03L-SP1"
+// Program "Synplify Pro", Mapper "map202303lat, Build 132R"
+// Tue Apr  1 13:40:19 2025
+//
+// Source file index table:
+// Object locations will have the form <file>:<line>
+// file 0 "\c:\lscc\diamond\3.13\synpbase\lib\lucent\ecp5um5g.v "
+// file 1 "\c:\lscc\diamond\3.13\synpbase\lib\lucent\pmi_def.v "
+// file 2 "\c:\lscc\diamond\3.13\synpbase\lib\vlog\hypermods.v "
+// file 3 "\c:\lscc\diamond\3.13\synpbase\lib\vlog\scemi_objects.v "
+// file 4 "\c:\lscc\diamond\3.13\synpbase\lib\vlog\scemi_pipes.svh "
+// file 5 "\c:\lscc\diamond\3.13\cae_library\synthesis\verilog\ecp5um.v "
+// file 6 "\c:\lscc\diamond\3.13\cae_library\synthesis\verilog\pmi_def.v "
+// file 7 "\c:\project\2024\refael\lightning\vhdl\lastver\winner2\clarity\ecp5\pcie2_core\pcie2_extref\pcie2_extref.v "
+// file 8 "\c:\lscc\diamond\3.13\synpbase\lib\nlconst.dat "
+// file 9 "\c:\project\2024\refael\lightning\vhdl\lastver\winner2\clarity\ecp5\pcie2_core\pcie2_extref\pcie2_extref.fdc "
+
+`timescale 100 ps/100 ps
+module pcie2_extref (
+  refclkp,
+  refclkn,
+  refclko
+)
+;
+input refclkp ;
+input refclkn ;
+output refclko ;
+wire refclkp ;
+wire refclkn ;
+wire refclko ;
+wire GND ;
+wire VCC ;
+  VLO GND_0 (
+	.Z(GND)
+);
+  VHI VCC_0 (
+	.Z(VCC)
+);
+  PUR PUR_INST (
+	.PUR(VCC)
+);
+  GSR GSR_INST (
+	.GSR(VCC)
+);
+// @7:14
+(* LOC="EXTREF1" *)  EXTREFB EXTREF1_inst (
+	.REFCLKP(refclkp),
+	.REFCLKN(refclkn),
+	.REFCLKO(refclko)
+);
+defparam EXTREF1_inst.REFCK_PWDNB = "0b1";
+defparam EXTREF1_inst.REFCK_RTERM = "0b1";
+defparam EXTREF1_inst.REFCK_DCBIAS_EN = "0b1";
+endmodule /* pcie2_extref */
+

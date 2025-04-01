@@ -7,14 +7,14 @@ entity SysTimer is
 	port(
 		 nReset   				: in std_logic;
 		 Clk     				: in std_logic;--125MHz
-		 FPGA_VIDCLK			: in std_logic;--27MHz
+		 FPGA_VIDCLK			: in std_logic;--27MHz (25MHz in versa)
 --*********************** Global signals *****************************************
 		 s0_read				: in std_logic;
 		 s0_write				: in std_logic;
 		 s0_chipselect			: in std_logic;
 		 s0_address				: in std_logic_vector(3 downto 0);
-		 s0_readdata			: buffer std_logic_vector(15 downto 0);
-		 s0_writedata			: in std_logic_vector(15 downto 0);
+		 s0_readdata			: buffer std_logic_vector(31 downto 0);
+		 s0_writedata			: in std_logic_vector(31 downto 0);
 --************************* Avalon-MM Slave **************************************
 		 SystemTimer			: buffer std_logic_vector(63 downto 0);
 		 SyncOut				: buffer std_logic
@@ -69,13 +69,9 @@ BEGIN
 					if (s0_read = '1' and s0_chipselect = '1') then
 						case s0_address is
 							when x"0" =>
-								s0_readdata <= SystemTimer(15 downto 0);
-							when x"2" =>
-								s0_readdata <= SystemTimer(31 downto 16);
+								s0_readdata <= SystemTimer(31 downto 0);
 							when x"4" =>
-								s0_readdata <= SystemTimer(47 downto 32);
-							when x"6" =>
-								s0_readdata <= SystemTimer(63 downto 48);
+								s0_readdata <= SystemTimer(63 downto 32);
 							when others =>
 								s0_readdata	<= (others => '0');
 						end case;
@@ -92,7 +88,8 @@ BEGIN
 				SyncOut <= '0';
 			else
 				if rising_edge (FPGA_VIDCLK)then
-					if (Counter = x"1A") then--1uSec
+					-- if (Counter = x"1A") then--1uSec At 27MHz
+					if (Counter >= x"18") then--1uSec At 25MHz
 						Counter <= x"00";
 						SyncOut <= '1';
 						SysTimerSig <= SysTimerSig + 1;

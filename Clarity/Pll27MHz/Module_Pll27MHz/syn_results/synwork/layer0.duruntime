@@ -1,0 +1,13 @@
+Runtime Summary:
+================
+
+	The following design units have negligible CPU times:
+	=====================================================
+		*Library: work, Entity: Module_Pll27MHz, Architecture: structure
+			Hardware Generation Phase, Optimization Phase: Negligible CPU time
+		*Library: ecp5um, Entity: VHI, Architecture: syn_black_box
+			Initial Cleanup Phase, Optimization Phase: Negligible CPU time
+		*Library: ecp5um, Entity: VLO, Architecture: syn_black_box
+			Initial Cleanup Phase, Optimization Phase: Negligible CPU time
+		*Library: ecp5um, Entity: EHXPLLL, Architecture: syn_black_box
+			Initial Cleanup Phase, Optimization Phase: Negligible CPU time

@@ -1,0 +1,29 @@
+SCUBA, Version Diamond (64-bit) 3.13.0.56.2
+Tue Apr 01 09:49:42 2025
+  
+Copyright (c) 1991-1994 by NeoCAD Inc. All rights reserved.
+Copyright (c) 1995 AT&T Corp.   All rights reserved.
+Copyright (c) 1995-2001 Lucent Technologies Inc.  All rights reserved.
+Copyright (c) 2001 Agere Systems   All rights reserved.
+Copyright (c) 2002-2023 Lattice Semiconductor Corporation,  All rights reserved.
+  
+BEGIN SCUBA Module Synthesis
+  
+    Issued command   : C:\lscc\diamond\3.13\ispfpga\bin\nt64\scuba.exe -w -n Module_Pll27MHz -lang vhdl -synth synplify -bus_exp 7 -bb -arch sa5p00g -type pll -fin 100 -fclkop 125.00 -fclkop_tol 0.0 -fclkos 25.00 -fclkos_tol 0.0 -phases 0 -phase_cntl STATIC -lock -fb_mode 1 
+    Circuit name     : Module_Pll27MHz
+    Module type      : pll
+    Module Version   : 5.7
+    Ports            : 
+    Inputs       : CLKI
+    Outputs      : CLKOP, CLKOS, LOCK
+    I/O buffer       : not inserted
+    EDIF output      : Module_Pll27MHz.edn
+    VHDL output      : Module_Pll27MHz.vhd
+    VHDL template    : Module_Pll27MHz_tmpl.vhd
+    VHDL purpose     : for synthesis and simulation
+    Bus notation     : big endian
+    Report output    : Module_Pll27MHz.srp
+    Estimated Resource Usage:
+  
+END   SCUBA Module Synthesis
+

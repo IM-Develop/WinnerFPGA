@@ -1,0 +1,7 @@
+C:\lscc\diamond\3.13\synpbase\bin64\syn_nfilter.exe  -link  -top  pcie2_extref  -multisrs  C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\ecp5\pcie2_core\pcie2_extref\syn_results\synwork\pcie2_extref_comp.srs  -osyn  C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\ecp5\pcie2_core\pcie2_extref\syn_results\synwork\pcie2_extref_mult.srs  -log  C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\ecp5\pcie2_core\pcie2_extref\syn_results\synlog\pcie2_extref_multi_srs_gen.srr 
+relcom:..\..\..\..\..\..\..\..\..\..\..\..\..\lscc\diamond\3.13\synpbase\bin64\syn_nfilter.exe -link -top pcie2_extref -multisrs ..\synwork\pcie2_extref_comp.srs -osyn ..\synwork\pcie2_extref_mult.srs -log ..\synlog\pcie2_extref_multi_srs_gen.srr
+rc:0 success:1 runtime:1
+file:..\synwork\pcie2_extref_comp.srs|io:i|time:1743504013|size:2415|exec:0|csum:787D7B109D708A8EB32CF905116F21A6
+file:..\synwork\pcie2_extref_mult.srs|io:o|time:1743504014|size:2132|exec:0|csum:
+file:..\synlog\pcie2_extref_multi_srs_gen.srr|io:o|time:1743504014|size:1348|exec:0|csum:
+file:..\..\..\..\..\..\..\..\..\..\..\..\..\lscc\diamond\3.13\synpbase\bin64\syn_nfilter.exe|io:i|time:1691654056|size:10600960|exec:1|csum:6BAEBE966B12EE4A1CCC452B6603E0B1

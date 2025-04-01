@@ -3,7 +3,7 @@
 <ReportView version="2.0">
     <Implement name="impl1">
         <ToolReport id="tooldec" path="" status="0"/>
-        <ToolReport id="toolhle_genhierarchy" path="C:/Project/IM_Git_Projects/Refael/Winner2/Implementation/ecp5um-85F_PCIeBasic/impl1/hdla_gen_hierarchy.html" status="1"/>
+        <ToolReport id="toolhle_genhierarchy" path="C:/Project/2024/Refael/Lightning/Vhdl/LastVer/Winner2/Implementation/ecp5um-85F_PCIeBasic/impl1/hdla_gen_hierarchy.html" status="1"/>
         <ToolReport id="toolpio" path="" status="2"/>
         <ToolReport id="toolsso" path="" status="2"/>
     </Implement>

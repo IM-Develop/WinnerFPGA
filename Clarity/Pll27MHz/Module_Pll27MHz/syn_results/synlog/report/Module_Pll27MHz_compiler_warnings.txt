@@ -1,0 +1,2 @@
+@W: CL168 :"C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\Module_Pll27MHz.vhd":45:4:45:17|Removing instance scuba_vhi_inst because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+

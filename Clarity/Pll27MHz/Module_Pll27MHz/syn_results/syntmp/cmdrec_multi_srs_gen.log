@@ -1,0 +1,7 @@
+C:\lscc\diamond\3.13\synpbase\bin64\syn_nfilter.exe  -link  -top  Module_Pll27MHz  -multisrs  C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\syn_results\synwork\Module_Pll27MHz_comp.srs  -osyn  C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\syn_results\synwork\Module_Pll27MHz_mult.srs  -log  C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\syn_results\synlog\Module_Pll27MHz_multi_srs_gen.srr 
+relcom:..\..\..\..\..\..\..\..\..\..\..\..\lscc\diamond\3.13\synpbase\bin64\syn_nfilter.exe -link -top Module_Pll27MHz -multisrs ..\synwork\Module_Pll27MHz_comp.srs -osyn ..\synwork\Module_Pll27MHz_mult.srs -log ..\synlog\Module_Pll27MHz_multi_srs_gen.srr
+rc:0 success:1 runtime:0
+file:..\synwork\module_pll27mhz_comp.srs|io:i|time:1743490186|size:5271|exec:0|csum:C2F4EF4AEB885D721F1243C40635BDE2
+file:..\synwork\module_pll27mhz_mult.srs|io:o|time:1743490187|size:4983|exec:0|csum:
+file:..\synlog\module_pll27mhz_multi_srs_gen.srr|io:o|time:1743490187|size:1312|exec:0|csum:
+file:..\..\..\..\..\..\..\..\..\..\..\..\lscc\diamond\3.13\synpbase\bin64\syn_nfilter.exe|io:i|time:1691654056|size:10600960|exec:1|csum:6BAEBE966B12EE4A1CCC452B6603E0B1

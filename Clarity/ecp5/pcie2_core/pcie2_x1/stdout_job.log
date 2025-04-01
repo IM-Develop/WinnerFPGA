@@ -1,0 +1,80 @@
+{
+"Synplify Pro (R) Job Log" : {
+	"Date" : "15:34:36    03-Sep-2024",
+	"Working Directory" : "C:/Project/2024/Refael/Lightning/Vhdl/VersaTest/Vhdl/Versa_PCIeBasic/Clarity/ecp5um5G-45-Versa/pcie2_core/pcie2_core/pcie2_x1/syn_results",
+	"Install" : "C:/lscc/diamond/3.13/synpbase"
+},
+"syn_results" :{
+   "Start Time" : "15:34:26",
+   "Runtime" : "10s",
+   "Executable Run Time" : "08s",
+   "synthesis" : {
+      "Start Time" : "15:34:26",
+      "Runtime" : "10s",
+      "Executable Run Time" : "08s",
+      "compile" : {
+         "Start Time" : "15:34:26",
+         "Runtime" : "06s",
+         "Executable Run Time" : "05s",
+         "compile_flow" : {
+            "Start Time" : "15:34:26",
+            "Runtime" : "05s",
+            "Executable Run Time" : "04s",
+            "compiler" : {
+               "executable" : "bin64/c_hdl.exe",
+               "Run Directory" : "C:/Project/2024/Refael/Lightning/Vhdl/VersaTest/Vhdl/Versa_PCIeBasic/Clarity/ecp5um5G-45-Versa/pcie2_core/pcie2_core/pcie2_x1/syn_results",
+               "Run State" : "Complete",
+               "Return Code" : "0",
+               "Has Errors" : "no",
+               "Run Start Time" : "15:34:26",
+               "Run Time" : "05s",
+               "Exe Run Time" : "04s",
+               "Memory Usage" : "-",
+               "Up-to-date (run skipped)" : "no"
+            },
+            "multi_srs_gen" : {
+               "executable" : "bin64/syn_nfilter.exe",
+               "Run Directory" : "C:/Project/2024/Refael/Lightning/Vhdl/VersaTest/Vhdl/Versa_PCIeBasic/Clarity/ecp5um5G-45-Versa/pcie2_core/pcie2_core/pcie2_x1/syn_results",
+               "Run State" : "Complete",
+               "Return Code" : "0",
+               "Has Errors" : "no",
+               "Run Start Time" : "15:34:31",
+               "Run Time" : "00s",
+               "Exe Run Time" : "00s",
+               "Memory Usage" : "-",
+               "Up-to-date (run skipped)" : "no"
+            }
+         },
+         "premap" : {
+            "executable" : "bin64/m_gen_lattice.exe",
+            "Run Directory" : "C:/Project/2024/Refael/Lightning/Vhdl/VersaTest/Vhdl/Versa_PCIeBasic/Clarity/ecp5um5G-45-Versa/pcie2_core/pcie2_core/pcie2_x1/syn_results",
+            "Run State" : "Complete",
+            "Return Code" : "1",
+            "Has Errors" : "no",
+            "Run Start Time" : "15:34:31",
+            "Run Time" : "01s",
+            "Exe Run Time" : "01s",
+            "Memory Usage" : "-",
+            "Up-to-date (run skipped)" : "no"
+         }
+      },
+      "map" : {
+         "Start Time" : "15:34:33",
+         "Runtime" : "03s",
+         "Executable Run Time" : "03s",
+         "fpga_mapper" : {
+            "executable" : "bin64/m_gen_lattice.exe",
+            "Run Directory" : "C:/Project/2024/Refael/Lightning/Vhdl/VersaTest/Vhdl/Versa_PCIeBasic/Clarity/ecp5um5G-45-Versa/pcie2_core/pcie2_core/pcie2_x1/syn_results",
+            "Run State" : "Complete",
+            "Return Code" : "1",
+            "Has Errors" : "no",
+            "Run Start Time" : "15:34:33",
+            "Run Time" : "03s",
+            "Exe Run Time" : "03s",
+            "Memory Usage" : "-",
+            "Up-to-date (run skipped)" : "no"
+         }
+      }
+   }
+}
+}

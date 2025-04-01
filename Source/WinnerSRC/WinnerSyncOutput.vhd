@@ -14,8 +14,8 @@ entity WinnerSyncOutput is
 		 s0_write				: in std_logic;
 		 s0_chipselect			: in std_logic;
 		 s0_address				: in std_logic_vector(4 downto 0);
-		 s0_readdata			: buffer std_logic_vector(15 downto 0);
-		 s0_writedata			: in std_logic_vector(15 downto 0);
+		 s0_readdata			: buffer std_logic_vector(31 downto 0);
+		 s0_writedata			: in std_logic_vector(31 downto 0);
 --************************* Avalon-MM Slave **************************************
 		 SystemTimer			: in std_logic_vector(63 downto 0);
 		 Output     			: buffer std_logic
@@ -50,13 +50,9 @@ BEGIN
 								Enable <= s0_writedata(0);
 								Phase <= s0_writedata(1);
 							when "00100" =>
-								EventTime(15 downto 0) <= s0_writedata;
-							when "00110" =>
-								EventTime(31 downto 16) <= s0_writedata;
+								EventTime(31 downto 0) <= s0_writedata;
 							when "01000" =>
-								EventTime(47 downto 32) <= s0_writedata;
-							when "01010" =>
-								EventTime(63 downto 48) <= s0_writedata;
+								EventTime(63 downto 32) <= s0_writedata;
 							when others =>
 								null;
 						end case;
@@ -64,20 +60,16 @@ BEGIN
 					if (s0_read = '1' and s0_chipselect = '1') then
 						case s0_address is
 							when "00000" =>
-								s0_readdata <= x"000"&'0'&Output&Phase&Enable;
+								s0_readdata <= x"0000000"&'0'&Output&Phase&Enable;
 							when "00100" =>
-								s0_readdata <= EventTime(15 downto 0);
-							when "00110" =>
-								s0_readdata <= EventTime(31 downto 16);
+								s0_readdata <= EventTime(31 downto 0);
 							when "01000" =>
-								s0_readdata <= EventTime(47 downto 32);
-							when "01010" =>
-								s0_readdata <= EventTime(63 downto 48);
+								s0_readdata <= EventTime(63 downto 32);
 							when others =>
-								s0_readdata <= x"0000";
+								s0_readdata <= (others => '0');
 						end case;
 					else
-						s0_readdata <= x"0000";
+						s0_readdata <= (others => '0');
 					end if;
 				end if;
 			end if;

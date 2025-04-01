@@ -24,28 +24,7 @@
         <Source name="../../source/ip_rx_crpr.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
-        <Source name="pci_exp_params.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
         <Source name="../../Source/ecp5/top_basic.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../../Clarity/ecp5/pcie_core/pcie_core.sbx" type="sbx" type_short="SBX" excluded="TRUE">
-            <Options/>
-        </Source>
-        <Source name="../../Clarity/ecp5/pcie_core/pcie_core.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../../Clarity/ecp5/pcie_core/pcie_x1/pcie_x1.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../../Clarity/ecp5/pcie_core/pcie_x1/pcie_x1_core_bb.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../../Clarity/ecp5/pcie_core/pcie_x1/pcie_x1_phy_bb.v" type="Verilog" type_short="Verilog">
-            <Options/>
-        </Source>
-        <Source name="../../Clarity/ecp5/pcie_core/pcie_extref/pcie_extref.v" type="Verilog" type_short="Verilog">
             <Options/>
         </Source>
         <Source name="../../Source/wb_arb/wb_arb.v" type="Verilog" type_short="Verilog">
@@ -99,10 +78,16 @@
         <Source name="../../Source/WinnerSRC/WinnerSyncOutput.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="Pll27MHz/Pll27MHz.sbx" type="sbx" type_short="SBX">
+        <Source name="../../Source/WinnerSRC/UARTFifo.vhd" type="VHDL" type_short="VHDL">
             <Options/>
         </Source>
-        <Source name="../../Source/WinnerSRC/UARTFifo.vhd" type="VHDL" type_short="VHDL">
+        <Source name="../../Clarity/Pll27MHz/Pll27MHz.sbx" type="sbx" type_short="SBX">
+            <Options/>
+        </Source>
+        <Source name="../../Source/WinnerSRC/CPLDLedCTRL.vhd" type="VHDL" type_short="VHDL">
+            <Options/>
+        </Source>
+        <Source name="../../Clarity/ecp5/pcie2_core/pcie2_core.sbx" type="sbx" type_short="SBX">
             <Options/>
         </Source>
         <Source name="impl1/impl1.xcf" type="Programming Project File" type_short="Programming">

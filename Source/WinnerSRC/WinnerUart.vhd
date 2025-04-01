@@ -14,9 +14,9 @@ entity WinnerUART is
 		 s0_write				: in std_logic;
 		 s0_chipselect			: in std_logic;
 		 s0_address				: in std_logic_vector(4 downto 0);
-		 s0_readdata			: buffer std_logic_vector(15 downto 0);
+		 s0_readdata			: buffer std_logic_vector(31 downto 0);
 		 -- s0_readdatavalid		: out std_logic;
-		 s0_writedata			: in std_logic_vector(15 downto 0);
+		 s0_writedata			: in std_logic_vector(31 downto 0);
 		 -- s0_waitrequest			: out std_logic;
 --************************* Avalon-MM Slave **************************************
 		 SystemTimer			: in std_logic_vector(63 downto 0);
@@ -300,32 +300,30 @@ BEGIN
 					if (s0_write = '1' and s0_chipselect = '1') then
 						case s0_address is
 							when "00100" =>--LSW write data
-								TxWrReq <= '0';--not(TxWrReq);--'1';
+								TxWrReq <= not(TxWrReq);--'1';
 								TxFifoIn(17 downto 0) <= '0' & s0_writedata(15 downto 8) & Tx9ThBit(0) & s0_writedata(7 downto 0);
+								TxFifoIn(35 downto 18) <= '0' & s0_writedata(31 downto 24) & '0' & s0_writedata(23 downto 16);
 								if (Tx9ThBit(0) = '1') then
 									Tx9ThBit(1) <= '1';
 								else
 									Tx9ThBit(1) <= Tx9ThBit(1);
 								end if;
-							when "00110" =>--LSW write data
-								TxWrReq <= not(TxWrReq);
-								TxFifoIn(35 downto 18) <= '0' & s0_writedata(15 downto 8) & '0' & s0_writedata(7 downto 0);
 							when "01000" =>--divider
-								BaudRate <= s0_writedata;
-							when "01010" =>--silence time [micro sec.]--divider
-								Silence <= s0_writedata;
+								BaudRate <= s0_writedata(15 downto 0);
+								Silence <= s0_writedata(31 downto 16);
+								TxWrReq <= '0';
 							when "01100" =>--water mark for irq
-								WaterMark <= s0_writedata;
-							when "01110" =>--water mark for irq
-								Parity <= s0_writedata(1 downto 0);
-								StopBit <= s0_writedata(2);
-								NumberObit <= s0_writedata(5 downto 3);
-								WaterMkInt <= s0_writedata(6);--enable water mark interrupt
-								SilnceInt <= s0_writedata(7);--enable Silence time interrupt
-								Tx9ThBit <= '0'&s0_writedata(8);--9th bit value
-								TxEn <= s0_writedata(9);
+								WaterMark <= s0_writedata(15 downto 0);
+								Parity <= s0_writedata(17 downto 16);
+								StopBit <= s0_writedata(18);
+								NumberObit <= s0_writedata(21 downto 19);
+								WaterMkInt <= s0_writedata(22);--enable water mark interrupt
+								SilnceInt <= s0_writedata(23);--enable Silence time interrupt
+								Tx9ThBit <= '0'&s0_writedata(24);--9th bit value
+								TxEn <= s0_writedata(25);
+								TxWrReq <= '0';
 							when "11100" =>
-								TxByte <= s0_writedata;
+								TxByte <= s0_writedata(15 downto 0);
 							when others =>
 								TxWrReq <= '0';
 						end case;
@@ -355,65 +353,45 @@ BEGIN
 						-- s0_readdatavalid <= '0';
 						case s0_address is
 							when "00000" =>--LSW read data
-								RxRdReq <= '0';--not(RxRdReq);
-								s0_readdata <= RxFifoOut(15 downto 0);
-							when "00010" =>--LSW read data
 								RxRdReq <= not(RxRdReq);
-								s0_readdata <= RxFifoOut(31 downto 16);
+								s0_readdata <= RxFifoOut;
 							when "00100" =>--LSW write data
-								-- s0_readdata(TxUartFifoSize-1 downto 0) <= TxFifoUsed;
-								-- s0_readdata(15 downto TxUartFifoSize) <= (others => '0');
-								s0_readdata <= TxByte;
-							when "00110" =>--LSW write data
-								s0_readdata(UartFifoSize-1 downto 0) <= RxFifoUsedN;--RxFifoUsed;
-								s0_readdata(15 downto UartFifoSize) <= (others => '0');
+								s0_readdata(15 downto 0) <= TxByte;
+								s0_readdata(UartFifoSize+15 downto 16) <= RxFifoUsedN;--RxFifoUsed;
+								s0_readdata(31 downto UartFifoSize) <= (others => '0');
 							when "01000" =>--divider
-								s0_readdata <= BaudRate;
-							when "01010" =>--divider
-								s0_readdata <= Silence;
+								s0_readdata <= Silence&BaudRate;
 							when "01100" =>--water mark for irq
-								s0_readdata <= WaterMark;
-							when "01110" =>--InternalInt status
-								s0_readdata <= "000000" & TxEn & Tx9ThBit(0) & SilnceInt & WaterMkInt & NumberObit & StopBit & Parity;
+								s0_readdata(15 downto 0) <= WaterMark;
+								s0_readdata(31 downto 16) <= "000000" & TxEn & Tx9ThBit(0) & SilnceInt & WaterMkInt & NumberObit & StopBit & Parity;
 							when "10000" =>
-								s0_readdata <= EventTime(15 downto 0);
-							when "10010" =>
-								s0_readdata <= EventTime(31 downto 16);
+								s0_readdata <= EventTime(31 downto 0);
 							when "10100" =>
-								s0_readdata <= EventTime(47 downto 32);
-							when "10110" =>
-								s0_readdata <= EventTime(63 downto 48);
+								s0_readdata <= EventTime(63 downto 32);
 							when "11000" =>
 								IntSourceClr <= '1';
-								s0_readdata <= x"00" & "000000" & IntSource;
+								s0_readdata <= x"000000" & "000000" & IntSource;
 							when "11100" =>
-								ClrUseL <= '0';
 								if (FifoULEmpty = '0') then
-									s0_readdata <= FifoULQ;
-								else
-									s0_readdata <= x"0000";
-								end if;
-							when "11110" =>
-								if (FifoULEmpty = '0') then
-									ClrUseL <= not(ClrUseL);
-									s0_readdata <= x"0000";
+									ClrUseL <= '1';--not(ClrUseL);
+									s0_readdata(15 downto 0) <= FifoULQ;
+									s0_readdata(31 downto 16) <= x"0000";
 								else
 									ClrUseL <= '0';
-									s0_readdata <= x"0001";
+									s0_readdata(15 downto 0) <= x"0000";
+									s0_readdata(31 downto 16) <= x"0001";
 								end if;
-								-- ClrUseL <= '1';
-								-- s0_readdata <= RxFifoUsedL(31 downto 16);
 							when others =>
 								RxRdReq <= '0';
 								ClrUseL <= '0';
 								IntSourceClr <= IntSourceClr;
-								s0_readdata <= x"0000";
+								s0_readdata <= x"00000000";
 						end case;
 					else
 						RxRdReq <= '0';
 						IntSourceClr <= '0';
 						ClrUseL <= '0';
-						s0_readdata <= x"0000";
+						s0_readdata <= x"00000000";
 					end if;
 				end if;
 			end if;
@@ -426,7 +404,7 @@ BEGIN
 				TxStart <= '0';
 			else
 				if rising_edge(Clk) then
-					if (BaudCount = BaudRate) then
+					if (BaudCount >= BaudRate) then
 						BaudCount <= (others => '0');
 						TxStart <= '1';
 					else
@@ -468,7 +446,7 @@ BEGIN
 								TxEnState <= '0';
 							end if;
 						when others =>
-							if (TxEmpty = '1' or TxByte = x"0000") then
+							if (TxEmpty = '1' or TxByte = x"0000") then--if tx fifo is empty, stop
 								TxEnSig <= "10";
 								TxEnState <= '0';
 							else
@@ -482,7 +460,8 @@ BEGIN
 							-- if (TxEmpty = '0' and TxEnSig(0) = '1' and TxByte /= x"0000") then
 							if (TxEnSig(0) = '1' and TxByte /= x"0000") then
 								if (TxStart = '1') then
-									TxD <= '0';
+									-- TxD <= '0';--start bit
+									TxD <= '1';--start bit
 									DIR <= '1';
 									case TxCount(5 downto 4) is
 										when "00" =>
@@ -513,7 +492,7 @@ BEGIN
 									TxState <= T2;
 								else
 									TxD <= '1';
-									DIR <= '0';
+									DIR <= '1';
 									TxData <= (others => '1');
 									TxRdReq <= '0';
 									TxCount(5 downto 4) <= TxCount(5 downto 4);
@@ -526,6 +505,18 @@ BEGIN
 						        TxRdReq <= '0';
 								TxCount(5 downto 4) <= "11";
 						        TxState <= T1;
+							end if;
+						when T2 =>
+							TxRdReq <= '0';
+							DIR <= '1';
+							TxCount <= TxCount;
+							TxData <= TxData;
+							if (TxStart = '1') then
+								TxD <= '0';
+								TxState <= T3;
+							else
+								TxD <= '1';
+								TxState <= T2;
 							end if;
 						when others =>
 							TxRdReq <= '0';
@@ -544,48 +535,13 @@ BEGIN
 								else
 									TxCount(3 downto 0) <= TxCount(3 downto 0) + 1;
 									TxCount(5 downto 4) <= TxCount(5 downto 4);
-									TxState <= T2;
+									TxState <= T3;
 								end if;
 							else
 								TxCount <= TxCount;
-								TxState <= T2;
+								TxState <= T3;
 							end if;
 					end case;
-					-- case TxTestState is
-						-- when T1 =>
-							-- TxTestCount <= x"0";
-							-- if (TxStart = '1' and TxTestStart = '1') then
-								-- TxTestStart <= '0';
-								-- TrigOut <= '0';
-								-- TxTestData <= TxTestData;
-								-- TxTestState <= T2;
-							-- elsif (InternalInt = '1') then
-								-- TxTestStart <= '1';
-								-- TrigOut <= '1';
-						        -- TxTestData <= WriteData_func(Parity, NumberObit, '1'&RxFifoUsed(7 downto 0));
-						        -- TxTestState <= T1;
-							-- else
-								-- TxTestStart <= TxTestStart;
-								-- TrigOut <= '1';
-						        -- TxTestData <= TxTestData;
-						        -- TxTestState <= T1;
-							-- end if;
-						-- when others =>
-							-- if (TxStart = '1') then
-								-- TrigOut <= TxTestData(0);
-								-- TxTestData <= '1' & TxTestData(11 downto 1);
-								-- if (TxTestCount = UsedBits_Func(Parity, StopBit, NumberObit)) then
-									-- TxTestCount <= x"0";
-									-- TxTestState <= T1;
-								-- else
-									-- TxTestCount <= TxTestCount + 1;
-									-- TxTestState <= T2;
-								-- end if;
-							-- else
-								-- TxTestCount <= TxTestCount;
-								-- TxTestState <= T2;
-							-- end if;
-					-- end case;
 				end if;
 			end if;
 		end process Tx_Proc;

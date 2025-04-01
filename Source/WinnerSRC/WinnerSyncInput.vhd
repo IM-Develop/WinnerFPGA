@@ -14,8 +14,8 @@ entity WinnerSyncInput is
 		 s0_write				: in std_logic;
 		 s0_chipselect			: in std_logic;
 		 s0_address				: in std_logic_vector(4 downto 0);
-		 s0_readdata			: buffer std_logic_vector(15 downto 0);
-		 s0_writedata			: in std_logic_vector(15 downto 0);
+		 s0_readdata			: buffer std_logic_vector(31 downto 0);
+		 s0_writedata			: in std_logic_vector(31 downto 0);
 --************************* Avalon-MM Slave **************************************
 		 SystemTimer			: in std_logic_vector(63 downto 0);
 		 Input     				: in std_logic
@@ -33,6 +33,8 @@ ARCHITECTURE Arc_WinnerSyncInput OF WinnerSyncInput IS
 	
 	signal	Enable		: std_logic;
 	signal	Latch		: std_logic;
+	
+	signal	SigLatch	: std_logic_vector(2 downto 0);
 	
 	signal	InputHold	: std_logic;
 	signal	EventCount	: std_logic_vector(31 downto 0);
@@ -73,50 +75,52 @@ BEGIN
 			if (nReset = '0')then
 				Enable <= '0';
 				Latch <= '0';
+				SigLatch <= "000";
 				s0_readdata	<= (others => '0');
 			else
 				if rising_edge (Clk)then
-					if (s0_write = '1' and s0_chipselect = '1') then
-						case s0_address is
-							when "00000" =>
-								Enable <= s0_writedata(0);
-								Latch <= s0_writedata(1);
-							when others =>
-								null;
-						end case;
+					if (SigLatch(0) = '1') then
+						Enable <= SigLatch(1);
+						Latch <= SigLatch(2);
 					else
 						Enable <= Enable;
 						Latch <= '0';
 					end if;
+					if (s0_write = '1' and s0_chipselect = '1') then
+						case s0_address is
+							when "00000" =>
+								-- Enable <= s0_writedata(0);
+								-- Latch <= s0_writedata(1);
+								SigLatch(0) <= not(SigLatch(0));
+								SigLatch(1) <= s0_writedata(0);
+								SigLatch(2) <= s0_writedata(1);
+							when others =>
+								SigLatch <= "000";
+						end case;
+					else
+						SigLatch <= "000";
+						-- Enable <= Enable;
+						-- Latch <= '0';
+					end if;
 					if (s0_read = '1' and s0_chipselect = '1') then
 						case s0_address is
 							when "00000" =>
-								s0_readdata <= x"000"&'0'&DebouncerS(2)&Latch&Enable;
+								s0_readdata <= x"0000000"&'0'&DebouncerS(2)&Latch&Enable;
 							when "00100" =>
-								s0_readdata <= HoldReg(15 downto 0);
-							when "00110" =>
-								s0_readdata <= HoldReg(31 downto 16);
+								s0_readdata <= HoldReg(31 downto 0);
 							when "01000" =>
-								s0_readdata <= HoldReg(47 downto 32);
-							when "01010" =>
-								s0_readdata <= HoldReg(63 downto 48);
+								s0_readdata <= HoldReg(63 downto 32);
 							when "01100" =>
-								s0_readdata <= HoldReg(79 downto 64);
-							when "01110" =>
-								s0_readdata <= HoldReg(95 downto 80);
+								s0_readdata <= HoldReg(95 downto 64);
 							when "10000" =>
-								s0_readdata <= HoldReg(111 downto 96);
-							when "10010" =>
-								s0_readdata <= HoldReg(127 downto 112);
+								s0_readdata <= HoldReg(127 downto 96);
 							when "10100" =>
-								s0_readdata <= HoldReg(143 downto 128);
-							when "10110" =>
-								s0_readdata <= HoldReg(159 downto 144);
+								s0_readdata <= HoldReg(159 downto 128);
 							when others =>
-								s0_readdata <= x"0000";
+								s0_readdata <= (others => '0');
 						end case;
 					else
-						s0_readdata <= x"0000";
+						s0_readdata <= (others => '0');
 					end if;
 				end if;
 			end if;

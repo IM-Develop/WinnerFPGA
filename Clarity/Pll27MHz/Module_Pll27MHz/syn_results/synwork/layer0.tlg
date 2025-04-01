@@ -1,0 +1,19 @@
+@N: CD630 :"C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\Module_Pll27MHz.vhd":12:7:12:21|Synthesizing work.module_pll27mhz.structure.
+@N: CD630 :"C:\lscc\diamond\3.13\synpbase\lib\lucent\ecp5um.vhd":2083:10:2083:16|Synthesizing ecp5um.ehxplll.syn_black_box.
+Post processing for ecp5um.ehxplll.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.13\synpbase\lib\lucent\ecp5um.vhd":832:10:832:12|Synthesizing ecp5um.vlo.syn_black_box.
+Post processing for ecp5um.vlo.syn_black_box
+@N: CD630 :"C:\lscc\diamond\3.13\synpbase\lib\lucent\ecp5um.vhd":825:10:825:12|Synthesizing ecp5um.vhi.syn_black_box.
+Post processing for ecp5um.vhi.syn_black_box
+Post processing for work.module_pll27mhz.structure
+Running optimization stage 1 on Module_Pll27MHz .......
+@W: CL168 :"C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\Module_Pll27MHz.vhd":45:4:45:17|Removing instance scuba_vhi_inst because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+Finished optimization stage 1 on Module_Pll27MHz (CPU Time 0h:00m:00s, Memory Used current: 92MB peak: 93MB)
+Running optimization stage 2 on Module_Pll27MHz .......
+Finished optimization stage 2 on Module_Pll27MHz (CPU Time 0h:00m:00s, Memory Used current: 92MB peak: 93MB)
+
+For a summary of runtime per design unit, please see file:
+==========================================================
+@L: C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\syn_results\synwork\layer0.duruntime
+
+

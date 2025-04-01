@@ -1,0 +1,10 @@
+@N|Running in 64-bit mode
+@N|Running in 64-bit mode
+@N:"C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\Module_Pll27MHz.vhd":12:7:12:21|Top entity is set to Module_Pll27MHz.
+@N: CD140 :	| Using the VHDL 1993 Standard for file 'C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\Module_Pll27MHz.vhd'.
+@N: CD630 :"C:\Project\2024\Refael\Lightning\Vhdl\LastVer\Winner2\Clarity\Pll27MHz\Module_Pll27MHz\Module_Pll27MHz.vhd":12:7:12:21|Synthesizing work.module_pll27mhz.structure.
+@N: CD630 :"C:\lscc\diamond\3.13\synpbase\lib\lucent\ecp5um.vhd":2083:10:2083:16|Synthesizing ecp5um.ehxplll.syn_black_box.
+@N: CD630 :"C:\lscc\diamond\3.13\synpbase\lib\lucent\ecp5um.vhd":832:10:832:12|Synthesizing ecp5um.vlo.syn_black_box.
+@N: CD630 :"C:\lscc\diamond\3.13\synpbase\lib\lucent\ecp5um.vhd":825:10:825:12|Synthesizing ecp5um.vhi.syn_black_box.
+@N|Running in 64-bit mode
+
