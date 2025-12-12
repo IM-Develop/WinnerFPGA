@@ -1,0 +1,5 @@
+#Start recording tcl command: 12/12/2025 15:09:03
+#Project Location: C:/Project/2025/Refael/Vhdl/WinnerFPGA/Implementation/ecp5um-85F_PCIeBasic; Project name: top_x1
+prj_project open "C:/Project/2025/Refael/Vhdl/WinnerFPGA/Implementation/ecp5um-85F_PCIeBasic/top.ldf"
+prj_run Export -impl impl1 -task Bitgen
+#Stop recording: 12/12/2025 15:20:37
